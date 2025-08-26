@@ -44,13 +44,27 @@
   </style>
 </head>
 <body>
+# Go into your project folder
+cd "C:/Users/patel/OneDrive/Desktop/HexaRoot-Ventures-Final"
 
-  <!-- Hero -->
-  <header>
-    <img src="logo.png" alt="HexaRoot Ventures Logo" />
-    <h1>HexaRoot Ventures</h1>
-    <p>Rooted in Innovation – Growing in Food & Property</p>
-  </header>
+# Initialize Git (first time only)
+git init
+
+# Add your files
+git add .
+
+# Commit changes
+git commit -m "Deploy HexaRoot Ventures website"
+
+# Rename branch to main
+git branch -M main
+
+# Connect to your GitHub repo (replace YOUR-USERNAME if needed)
+git remote add origin https://github.com/Aksharnixglobal/HexaRoot-Ventures.git
+
+# Push files to GitHub
+git push -u origin main
+
 
   <!-- About Us -->
   <section>
