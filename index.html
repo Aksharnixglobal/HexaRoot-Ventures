@@ -44,27 +44,15 @@
   </style>
 </head>
 <body>
-# Go into your project folder
-cd "C:/Users/patel/OneDrive/Desktop/HexaRoot-Ventures-Final"
 
-# Initialize Git (first time only)
-git init
-
-# Add your files
-git add .
-
-# Commit changes
-git commit -m "Deploy HexaRoot Ventures website"
-
-# Rename branch to main
-git branch -M main
-
-# Connect to your GitHub repo (replace YOUR-USERNAME if needed)
-git remote add origin https://github.com/Aksharnixglobal/HexaRoot-Ventures.git
-
-# Push files to GitHub
-git push -u origin main
-
+  <!-- Hero -->
+  <header>
+    <img src="logo.png" alt="HexaRoot Ventures Logo"
+         onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<h1>HexaRoot Ventures</h1>');" />
+    <h1>HexaRoot Ventures</h1>
+    <p>Rooted in Innovation – Growing in Food & Property</p>
+    <noscript><h1>HexaRoot Ventures</h1></noscript>
+  </header>
 
   <!-- About Us -->
   <section>
@@ -192,8 +180,10 @@ git push -u origin main
 
   <!-- Footer -->
   <footer>
-    <img src="logo.png" alt="HexaRoot Ventures Logo" />
+    <img src="logo.png" alt="HexaRoot Ventures Logo"
+         onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<p><strong>HexaRoot Ventures</strong></p>');" />
     <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
+    <noscript><p><strong>HexaRoot Ventures</strong></p></noscript>
   </footer>
 
 </body>
