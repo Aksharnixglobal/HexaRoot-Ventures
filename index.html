@@ -5,84 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HexaRoot Ventures</title>
   <style>
-    :root { --brand:#0a3d62; --ink:#333; --muted:#666; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family: Arial, sans-serif; line-height:1.6; color:var(--ink); background:#fff; }
+    /* Brand palette (tuned to your logo) */
+    :root{
+      --brand:#0f3b2e;      /* deep green */
+      --brand-2:#145440;    /* lighter green for hovers/accents */
+      --ink:#1f2a24;        /* dark text */
+      --muted:#6b7a74;      /* muted text */
+    }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; font-family:Arial, sans-serif; line-height:1.6; color:var(--ink); background:#fff; }
 
     /* NAVBAR */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0;
-      background: var(--brand); z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,.12);
+    .navbar{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      background:var(--brand); border-bottom:1px solid rgba(255,255,255,.12);
     }
-    .navbar .wrap {
+    .navbar .wrap{
       max-width:1200px; margin:0 auto; padding:10px 20px;
       display:flex; align-items:center; gap:18px;
     }
-    .navbar a.brand {
-      color:#fff; font-weight:800; text-decoration:none; margin-right:10px;
-    }
-    .navbar ul {
-      list-style:none; margin:0; padding:0; display:flex; gap:18px;
-    }
-    .navbar ul li a {
+    .brand-logo{ height:28px; display:block; }
+    .navlinks{ list-style:none; margin:0; padding:0; display:flex; gap:22px; }
+    .navlinks a{
       color:#fff; text-decoration:none; font-weight:700;
     }
-    .navbar ul li a:hover { text-decoration:underline; }
+    .navlinks a:hover{ color:#e7f3ed; text-decoration:underline; }
 
-    /* Generic sections */
-    section { padding:60px 20px; max-width:1200px; margin:auto; }
-    /* prevent anchor hiding under fixed nav */
-    section { scroll-margin-top:70px; }
-    h2 { text-align:center; font-size:2rem; margin-bottom:20px; }
-    p.section-subtitle { text-align:center; color:var(--muted); margin-bottom:40px; }
+    /* HEADER (hero) */
+    header{
+      background:var(--brand); color:#fff; text-align:center;
+      padding:120px 20px 70px;   /* extra top padding to clear fixed nav */
+      margin-top:48px;           /* space under fixed nav */
+    }
+    header img.hero-logo{ max-height:84px; margin-bottom:16px; }
+    header h1{ font-size:2.8rem; margin:6px 0 8px; }
+    header p{ font-size:1.2rem; margin:0; color:#d9ece5; }
 
-    /* Header (hero) */
-    header { background:var(--brand); color:#fff; text-align:center; padding:100px 20px 60px; margin-top:48px; }
-    header img { max-height:80px; margin-bottom:15px; }
-    header h1 { font-size:2.5rem; margin:0; }
-    header p { font-size:1.2rem; margin-top:10px; color:#d1d8e0; }
+    /* Sections */
+    section{ padding:60px 20px; max-width:1200px; margin:auto; scroll-margin-top:80px; }
+    h2{ text-align:center; font-size:2rem; margin-bottom:20px; color:var(--brand); }
+    p.section-subtitle{ text-align:center; color:var(--muted); margin-bottom:40px; }
 
     /* Ventures */
-    .ventures { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-    .venture { border:1px solid #ddd; border-radius:12px; padding:20px; background:#f9f9f9; }
-    .venture h3 { margin-top:0; color:var(--brand); }
+    .ventures{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+    .venture{ border:1px solid #e5efea; border-radius:12px; padding:20px; background:#f8fbf9; }
+    .venture h3{ margin-top:0; color:var(--brand); }
 
-    /* Founders */
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-    .card { border:1px solid #ddd; border-radius:12px; padding:20px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.05); transition:0.2s; }
-    .card:hover { box-shadow:0 4px 12px rgba(0,0,0,0.12); }
-    .card-header { display:flex; align-items:center; }
-    .avatar { width:56px; height:56px; border-radius:50%; background:#f5f5f5; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.2rem; margin-right:15px; border:1px solid #ddd; }
-    .card-header h3 { margin:0; font-size:1.1rem; }
-    .card-header p { margin:2px 0 0; font-size:0.9rem; color:#666; }
-    .tags { margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
-    .tag { border:1px solid #ccc; border-radius:20px; padding:4px 10px; font-size:0.75rem; }
-    .bio { margin-top:12px; font-size:0.9rem; color:#555; }
+    /* Team */
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .card{ border:1px solid #e5efea; border-radius:12px; padding:20px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+    .card-header{ display:flex; align-items:center; }
+    .avatar{ width:56px; height:56px; border-radius:50%; background:#f2f7f5; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.2rem; margin-right:15px; border:1px solid #e5efea; }
+    .card-header h3{ margin:0; font-size:1.1rem; }
+    .card-header p{ margin:2px 0 0; font-size:.9rem; color:#5c6a64; }
+    .tags{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
+    .tag{ border:1px solid #d7e6df; border-radius:20px; padding:4px 10px; font-size:.75rem; background:#f5fbf8; }
+    .bio{ margin-top:12px; font-size:.95rem; color:#3b4742; }
 
     /* Contact */
-    .contact { text-align:center; }
-    .contact p { margin:8px 0; }
-    .contact a { color:var(--brand); text-decoration:none; }
-    .contact a:hover { text-decoration:underline; }
+    .contact{ text-align:center; }
+    .contact a{ color:var(--brand-2); text-decoration:none; }
+    .contact a:hover{ text-decoration:underline; }
 
     /* Footer */
-    footer { background:var(--brand); color:#fff; text-align:center; padding:20px; margin-top:40px; }
-    footer img { max-height:40px; display:block; margin:0 auto 10px; }
+    footer{ background:var(--brand); color:#fff; text-align:center; padding:20px; margin-top:40px; }
+    footer img{ max-height:40px; display:block; margin:0 auto 10px; }
 
-    /* Small screens */
-    @media (max-width:700px){
-      .navbar .wrap { flex-wrap:wrap; }
-    }
+    @media (max-width:700px){ .navbar .wrap{ flex-wrap:wrap; } }
   </style>
 </head>
 <body>
 
-  <!-- TOP NAV -->
+  <!-- NAVBAR with logo on the left -->
   <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="wrap">
-      <a class="brand" href="#">HexaRoot</a>
-      <ul>
+      <!-- show your logo file here -->
+      <a href="#" aria-label="HexaRoot Ventures">
+        <img class="brand-logo" src="logo.png" alt="HexaRoot Ventures logo">
+      </a>
+      <ul class="navlinks">
         <li><a href="#about">About Us</a></li>
         <li><a href="#ventures">Our Ventures</a></li>
         <li><a href="#team">Our Founding Team</a></li>
@@ -91,85 +92,70 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO (single title only; removed duplicate & onerror text) -->
   <header>
-  <img src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures Logo" />
-         onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<h1>HexaRoot Ventures</h1>');" />
+    <img class="hero-logo" src="logo.png" alt="HexaRoot Ventures">
     <h1>HexaRoot Ventures</h1>
     <p>Rooted in Innovation – Growing in Food &amp; Property</p>
-    <noscript><h1>HexaRoot Ventures</h1></noscript>
   </header>
 
-  <!-- About Us -->
+  <!-- ABOUT -->
   <section id="about">
     <h2>About Us</h2>
     <p class="section-subtitle">
       Founded by <strong>Patrick Patel</strong> and five fellow cricketer friends —
       <strong>Jugal Chokshi</strong>, <strong>Nilpeshkumar Patel</strong>, <strong>Raj Lakkad</strong>,
-      <strong>Darshan Patel</strong>, and <strong>Bhavik Gandhi</strong> — HexaRoot Ventures brings
-      teamwork, dedication, and vision from the cricket field into the business world.
-      We are focused on shaping the future of food and property development with passion and integrity.
+      <strong>Darshan Patel</strong>, and <strong>Bhavik Gandhi</strong> — HexaRoot Ventures brings teamwork,
+      dedication, and vision from the cricket field into the business world. We are focused on shaping the future
+      of food and property development with passion and integrity.
     </p>
   </section>
 
-  <!-- Ventures -->
+  <!-- VENTURES -->
   <section id="ventures">
     <h2>Our Ventures</h2>
     <div class="ventures">
       <div class="venture">
         <h3>Food Business 🍴</h3>
-        <p>
-          Delivering authentic taste and innovative food concepts. From hospitality
-          to packaged products, we aim to create memorable dining experiences and
-          scalable business opportunities.
-        </p>
+        <p>Delivering authentic taste and innovative food concepts. From hospitality to packaged products,
+           we aim to create memorable dining experiences and scalable business opportunities.</p>
       </div>
       <div class="venture">
         <h3>Property Development 🏗️</h3>
-        <p>
-          Building sustainable, community-driven real estate projects.
-          Our focus spans residential and commercial development that
-          enhances both lifestyle and value.
-        </p>
+        <p>Building sustainable, community-driven real estate projects. Our focus spans residential and
+           commercial development that enhances both lifestyle and value.</p>
       </div>
     </div>
   </section>
 
-  <!-- Founding Team -->
+  <!-- TEAM -->
   <section id="team">
     <h2>Our Founding Team</h2>
     <p class="section-subtitle">Meet the visionaries behind HexaRoot Ventures</p>
     <div class="grid">
 
-      <!-- Patrick Patel -->
+      <!-- Patrick -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">PP</div>
           <div>
-            <h3> Patrick Patel</h3>
+            <h3>Patrick Patel</h3>
             <p>Founder &amp; CEO</p>
           </div>
         </div>
-        <div class="tags">
-          <span class="tag">Hospitality</span>
-          <span class="tag">Real Estate</span>
-          <span class="tag">IT Leadership</span>
-        </div>
+        <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT Leadership</span></div>
         <div class="bio">
-          Patrick brings <strong>13+ years of hospitality experience</strong>, having managed and grown
-          restaurants and motels across <strong>Texas, Virginia, Pennsylvania, and New Jersey</strong>.
-          His expertise in operations, customer service, and business growth drives the vision of
-          HexaRoot Ventures — combining hospitality, real estate, and investments into a trusted,
-          multi-division brand.
+          Patrick brings <strong>13+ years of hospitality experience</strong>, having managed and grown restaurants and motels
+          across <strong>Texas, Virginia, Pennsylvania, and New Jersey</strong>. His expertise in operations, customer service,
+          and business growth drives the vision of HexaRoot Ventures — combining hospitality, real estate, and investments into a
+          trusted, multi-division brand.
           <br><br>
-          He also has extensive <strong>IT experience</strong>, having worked as a Business Analyst and
-          currently serving as a <strong>QA Lead Manager</strong>. This dual background in hospitality
-          and technology enables him to blend operational excellence with strategic innovation in
-          leading HexaRoot Ventures.
+          He also has extensive <strong>IT experience</strong>, having worked as a Business Analyst and currently serving as a
+          <strong>QA Lead Manager</strong>, blending operational excellence with strategic innovation.
         </div>
       </div>
 
-      <!-- Jugal Chokshi -->
+      <!-- Jugal -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">JC</div>
@@ -178,25 +164,17 @@
             <p>COO &amp; Co-Founder</p>
           </div>
         </div>
-        <div class="tags">
-          <span class="tag">Finance</span>
-          <span class="tag">Investments</span>
-          <span class="tag">Operations</span>
-          <span class="tag">Compliance</span>
-        </div>
+        <div class="tags"><span class="tag">Finance</span><span class="tag">Investments</span><span class="tag">Operations</span><span class="tag">Compliance</span></div>
         <div class="bio">
-          Jugal is a <strong>Financial Services Professional</strong> specializing in
-          <strong>retirement planning, investments, annuities, and life insurance</strong>.
-          Licensed through <strong>NYLIFE Securities LLC (FINRA/SIPC)</strong>, he has built a
-          successful practice advising clients on long-term financial security.
+          Jugal is a <strong>Financial Services Professional</strong> specializing in retirement planning, investments, annuities,
+          and life insurance, licensed through <strong>NYLIFE Securities LLC (FINRA/SIPC)</strong>.
           <br><br>
-          As <strong>Chief Operating Officer</strong> at HexaRoot Ventures, Jugal applies his financial
-          acumen and leadership to oversee operations, ensure compliance, and drive sustainable
-          growth across the Real Estate and Hospitality divisions.
+          As <strong>Chief Operating Officer</strong>, he oversees operations, ensures compliance, and drives sustainable growth
+          across the Real Estate and Hospitality divisions.
         </div>
       </div>
 
-      <!-- Nilpeshkumar Patel -->
+      <!-- Nilpesh -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">NP</div>
@@ -205,24 +183,15 @@
             <p>CSDO &amp; Co-Founder</p>
           </div>
         </div>
-        <div class="tags">
-          <span class="tag">IT Delivery</span>
-          <span class="tag">Restaurant Ops</span>
-          <span class="tag">Wealth &amp; Insurance</span>
-        </div>
+        <div class="tags"><span class="tag">IT Delivery</span><span class="tag">Restaurant Ops</span><span class="tag">Wealth &amp; Insurance</span></div>
         <div class="bio">
-          Nilpeshkumar has <strong>14+ years in IT</strong> as an Advisor and Delivery Manager,
-          leading major technology initiatives and cross-team projects. He also brings
-          <strong>7+ years</strong> as a restaurant owner (U.S. &amp; Canada) and
-          <strong>5+ years</strong> in finance (wealth &amp; insurance).
-          <br><br>
-          As <strong>Chief Strategy &amp; Delivery Officer</strong>, he combines technology, operations,
-          and financial expertise to drive execution, efficiency, and long-term growth—building
-          scalable systems beyond the traditional 9–5 model.
+          Nilpeshkumar has <strong>14+ years in IT</strong> leading major technology initiatives, plus <strong>7+ years</strong>
+          as a restaurant owner (U.S. &amp; Canada) and <strong>5+ years</strong> in finance. As <strong>Chief Strategy &amp; Delivery Officer</strong>,
+          he drives execution, efficiency, and long-term growth — building scalable systems beyond the traditional 9–5 model.
         </div>
       </div>
 
-      <!-- Bhavik Gandhi -->
+      <!-- Bhavik -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">BG</div>
@@ -233,13 +202,12 @@
         </div>
         <div class="tags"><span class="tag">Network Security</span><span class="tag">Finance</span><span class="tag">Operations</span></div>
         <div class="bio">
-          Bhavik brings over <strong>8 years of experience</strong> as a Network Security Engineer with additional expertise in finance and operations.
-          His background in technology and financial systems allows him to bridge both security and business strategy, ensuring HexaRoot Ventures
-          operates on a foundation of stability, trust, and growth.
+          Bhavik brings over <strong>8 years</strong> as a Network Security Engineer with finance/operations expertise,
+          aligning security with business strategy to keep HexaRoot stable and trusted.
         </div>
       </div>
 
-      <!-- Raj Lakkad -->
+      <!-- Raj -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">RL</div>
@@ -250,13 +218,12 @@
         </div>
         <div class="tags"><span class="tag">IT</span><span class="tag">Enterprise Systems</span><span class="tag">Client Relations</span></div>
         <div class="bio">
-          With over <strong>10 years in IT at American Airlines</strong>, Raj has extensive experience in enterprise technology and systems management.
-          His expertise in IT operations and large-scale infrastructure ensures HexaRoot Ventures benefits from reliable technology solutions and
-          strong operational resilience. Raj also plays a key role in client relations and strategic growth initiatives.
+          With <strong>10+ years in IT at American Airlines</strong>, Raj brings enterprise technology and systems management
+          expertise, ensuring reliable infrastructure and strong client relationships.
         </div>
       </div>
 
-      <!-- Darshan Patel -->
+      <!-- Darshan -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">DP</div>
@@ -267,27 +234,25 @@
         </div>
         <div class="tags"><span class="tag">SDET</span><span class="tag">Trading</span><span class="tag">Financial Markets</span></div>
         <div class="bio">
-          Darshan has more than <strong>6 years of experience</strong> as an SDET (Software Development Engineer in Test) combined with a strong background in trading and financial markets.
-          His analytical skills and attention to detail bring a performance-driven mindset to HexaRoot Ventures, where he supports process efficiency, technology integration, and smart investment strategies.
+          Darshan has <strong>6+ years</strong> as an SDET with a strong trading background, bringing analytical rigor to
+          process efficiency, technology integration, and smart investment strategies.
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:contact@hexarootventures.com">contact@hexarootventures.com</a></p>
     <p>Follow us on social media (links coming soon)</p>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <img src="logo.png" alt="HexaRoot Ventures Logo"
-         onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<p><strong>HexaRoot Ventures</strong></p>');" />
+    <img src="logo.png" alt="HexaRoot Ventures logo">
     <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
-    <noscript><p><strong>HexaRoot Ventures</strong></p></noscript>
   </footer>
 
 </body>
