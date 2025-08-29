@@ -20,105 +20,70 @@
       background: var(--brand); border-bottom: 1px solid rgba(255,255,255,0.12);
     }
     .navbar .wrap {
-      max-width: 1200px; margin: 0 auto; padding: 18px 24px;
+      max-width: 1200px; margin: 0 auto; padding: 22px 26px; /* more room for larger logo */
       display: flex; align-items: center; gap: 18px;
     }
-    .brand-logo {
-      height: 72px; display: block; /* Bigger logo */
-    }
-    .navlinks {
-      list-style: none; margin: 0; padding: 0; display: flex; gap: 22px;
-    }
-    .navlinks a {
-      color: #fff; text-decoration: none; font-weight: 700;
-    }
-    .navlinks a:hover {
-      color: #e7f3ed; text-decoration: underline;
-    }
+    .brand-logo { height: 72px; display: block; } /* larger logo */
+    .navlinks { list-style: none; margin: 0; padding: 0; display: flex; gap: 22px; }
+    .navlinks a { color: #fff; text-decoration: none; font-weight: 700; }
+    .navlinks a:hover { color: #e7f3ed; text-decoration: underline; }
 
-    /* HERO with background image */
-    header {
+    /* HERO with background image + fallback */
+    header{
       position: relative;
-      background: url("hero-bg.jpg") center/cover no-repeat; /* clean filename */
+      /* 1) Try local hero-bg.jpg  2) Fallback to Unsplash if local not found */
+      background-image:
+        url("hero-bg.jpg"),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop");
+      background-position: center, center;
+      background-size: cover, cover;
+      background-repeat: no-repeat, no-repeat;
+
       text-align: center; color: #fff;
       padding: 200px 20px 140px;
     }
     header::before {
       content: "";
       position: absolute; inset: 0;
-      background: rgba(15,59,46,0.65);
+      background: rgba(15,59,46,0.65); /* green overlay for readability */
     }
-    header h1, header p {
-      position: relative; z-index: 1;
-    }
-    header h1 {
-      font-size: 3rem; margin: 0 0 12px;
-    }
-    header p {
-      font-size: 1.25rem; margin: 0;
-    }
+    header h1, header p { position: relative; z-index: 1; }
+    header h1 { font-size: 3rem; margin: 0 0 12px; }
+    header p { font-size: 1.25rem; margin: 0; }
 
     /* Sections */
-    section {
-      padding: 60px 20px; max-width: 1200px; margin: auto;
-      scroll-margin-top: 100px;
-    }
+    section { padding: 60px 20px; max-width: 1200px; margin: auto; scroll-margin-top: 100px; }
     h2 { text-align: center; font-size: 2rem; margin-bottom: 18px; color: var(--brand); }
     p.section-subtitle { text-align: center; color: var(--muted); margin-bottom: 36px; }
 
-    .ventures {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .venture {
-      border: 1px solid #e5efea;
-      border-radius: 12px;
-      padding: 20px;
-      background: #f8fbf9;
-    }
+    /* Ventures */
+    .ventures { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .venture { border: 1px solid #e5efea; border-radius: 12px; padding: 20px; background: #f8fbf9; }
     .venture h3 { margin-top: 0; color: var(--brand); }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      border: 1px solid #e5efea; border-radius: 12px;
-      padding: 20px; background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+    /* Team */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card { border: 1px solid #e5efea; border-radius: 12px; padding: 20px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
     .card-header { display: flex; align-items: center; }
     .avatar {
       width: 56px; height: 56px; border-radius: 50%;
-      background: #f2f7f5;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: bold; font-size: 1.2rem;
-      margin-right: 15px; border: 1px solid #e5efea;
+      background: #f2f7f5; display: flex; align-items: center; justify-content: center;
+      font-weight: bold; font-size: 1.2rem; margin-right: 15px; border: 1px solid #e5efea;
     }
     .card-header h3 { margin: 0; font-size: 1.1rem; }
     .card-header p { margin: 2px 0 0; font-size: .9rem; color: #5c6a64; }
     .tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      border: 1px solid #d7e6df; border-radius: 20px;
-      padding: 4px 10px; font-size: .75rem;
-      background: #f5fbf8;
-    }
+    .tag { border: 1px solid #d7e6df; border-radius: 20px; padding: 4px 10px; font-size: .75rem; background: #f5fbf8; }
     .bio { margin-top: 12px; font-size: .95rem; color: #3b4742; }
 
+    /* Contact */
     .contact { text-align: center; }
     .contact a { color: var(--brand-2); text-decoration: none; }
     .contact a:hover { text-decoration: underline; }
 
-    footer {
-      background: var(--brand); color: #fff; text-align: center;
-      padding: 20px; margin-top: 40px;
-    }
-    footer img {
-      max-height: 40px; display: block;
-      margin: 0 auto 10px;
-    }
+    /* Footer */
+    footer { background: var(--brand); color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+    footer img { max-height: 40px; display: block; margin: 0 auto 10px; }
 
     /* Responsive */
     @media (max-width: 600px) {
@@ -187,16 +152,79 @@
     <h2>Our Founding Team</h2>
     <p class="section-subtitle">Meet the visionaries behind HexaRoot Ventures</p>
     <div class="grid">
-      <!-- Example: Patrick -->
+
+      <!-- Patrick -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">PP</div>
           <div><h3>Patrick Patel</h3><p>Founder &amp; CEO</p></div>
         </div>
-        <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT</span></div>
-        <div class="bio">13+ years in hospitality and real estate… blending operations and innovation.</div>
+        <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT Leadership</span></div>
+        <div class="bio">
+          13+ years in hospitality across TX/VA/PA/NJ; blends operations and IT leadership to drive a trusted, multi-division brand.
+        </div>
       </div>
-      <!-- Other team cards go here -->
+
+      <!-- Jugal -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">JC</div>
+          <div><h3>Jugal Chokshi</h3><p>COO &amp; Co-Founder</p></div>
+        </div>
+        <div class="tags"><span class="tag">Finance</span><span class="tag">Investments</span><span class="tag">Operations</span><span class="tag">Compliance</span></div>
+        <div class="bio">
+          Financial services pro (retirement, investments, annuities, insurance). As COO, leads ops, compliance, and sustainable growth.
+        </div>
+      </div>
+
+      <!-- Nilpesh -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">NP</div>
+          <div><h3>Nilpeshkumar Patel</h3><p>CSDO &amp; Co-Founder</p></div>
+        </div>
+        <div class="tags"><span class="tag">IT Delivery</span><span class="tag">Restaurant Ops</span><span class="tag">Wealth &amp; Insurance</span></div>
+        <div class="bio">
+          14+ yrs IT delivery, 7+ yrs restaurant owner (US/CA), 5+ yrs finance. Drives strategy, execution, and scalable systems.
+        </div>
+      </div>
+
+      <!-- Bhavik -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">BG</div>
+          <div><h3>Bhavik Gandhi</h3><p>Co-Founder</p></div>
+        </div>
+        <div class="tags"><span class="tag">Network Security</span><span class="tag">Finance</span><span class="tag">Operations</span></div>
+        <div class="bio">
+          8+ yrs network security plus finance/ops experience; aligns technology risk with business growth.
+        </div>
+      </div>
+
+      <!-- Raj -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">RL</div>
+          <div><h3>Raj Lakkad</h3><p>Co-Founder</p></div>
+        </div>
+        <div class="tags"><span class="tag">IT</span><span class="tag">Enterprise Systems</span><span class="tag">Client Relations</span></div>
+        <div class="bio">
+          10+ yrs in IT at American Airlines; ensures robust enterprise systems and strong client relationships.
+        </div>
+      </div>
+
+      <!-- Darshan -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">DP</div>
+          <div><h3>Darshan Patel</h3><p>Co-Founder</p></div>
+        </div>
+        <div class="tags"><span class="tag">SDET</span><span class="tag">Trading</span><span class="tag">Financial Markets</span></div>
+        <div class="bio">
+          6+ yrs SDET with markets background; brings analytical rigor to process, tech integration, and investments.
+        </div>
+      </div>
+
     </div>
   </section>
 
