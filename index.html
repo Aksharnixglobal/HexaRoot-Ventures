@@ -2,88 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HexaRoot Ventures</title>
   <style>
-    /* Brand palette */
-    :root{
-      --brand:#0f3b2e;      /* deep green from logo */
-      --brand-2:#145440;    /* lighter green accent */
-      --ink:#1f2a24;        /* dark text */
-      --muted:#6b7a74;      /* muted text */
+    :root {
+      --brand: #0f3b2e;
+      --brand-2: #145440;
+      --ink: #1f2a24;
+      --muted: #6b7a74;
     }
-    html{ scroll-behavior:smooth; }
-    body{ margin:0; font-family:Arial, sans-serif; line-height:1.6; color:var(--ink); background:#fff; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: var(--ink); background: #fff; }
 
     /* NAVBAR */
-    .navbar{
-      position:fixed; top:0; left:0; right:0; z-index:1000;
-      background:var(--brand); border-bottom:1px solid rgba(255,255,255,.12);
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--brand); border-bottom: 1px solid rgba(255,255,255,0.12);
     }
-    .navbar .wrap{
-      max-width:1200px; margin:0 auto; padding:14px 20px; /* more padding for bigger logo */
-      display:flex; align-items:center; gap:18px;
+    .navbar .wrap {
+      max-width: 1200px; margin: 0 auto; padding: 18px 24px;
+      display: flex; align-items: center; gap: 18px;
     }
-    .brand-logo{ height:48px; display:block; }            /* bigger on desktop */
-    .navlinks{ list-style:none; margin:0; padding:0; display:flex; gap:22px; }
-    .navlinks a{
-      color:#fff; text-decoration:none; font-weight:700;
+    .brand-logo {
+      height: 72px; display: block; /* Bigger logo */
     }
-    .navlinks a:hover{ color:#e7f3ed; text-decoration:underline; }
+    .navlinks {
+      list-style: none; margin: 0; padding: 0; display: flex; gap: 22px;
+    }
+    .navlinks a {
+      color: #fff; text-decoration: none; font-weight: 700;
+    }
+    .navlinks a:hover {
+      color: #e7f3ed; text-decoration: underline;
+    }
 
-    /* HEADER (no center logo) */
-    header{
-      background:var(--brand); color:#fff; text-align:center;
-      padding:120px 20px 70px;   /* top padding to clear fixed nav */
+    /* HERO with background image */
+    header {
+      position: relative;
+      background: url("hero-bg.jpg") center/cover no-repeat; /* clean filename */
+      text-align: center; color: #fff;
+      padding: 200px 20px 140px;
     }
-    header h1{ font-size:2.6rem; margin:6px 0 8px; }
-    header p{ font-size:1.15rem; margin:0; color:#d9ece5; }
+    header::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: rgba(15,59,46,0.65);
+    }
+    header h1, header p {
+      position: relative; z-index: 1;
+    }
+    header h1 {
+      font-size: 3rem; margin: 0 0 12px;
+    }
+    header p {
+      font-size: 1.25rem; margin: 0;
+    }
 
     /* Sections */
-    section{ padding:60px 20px; max-width:1200px; margin:auto; scroll-margin-top:80px; }
-    h2{ text-align:center; font-size:2rem; margin-bottom:20px; color:var(--brand); }
-    p.section-subtitle{ text-align:center; color:var(--muted); margin-bottom:40px; }
-
-    /* Ventures */
-    .ventures{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-    .venture{ border:1px solid #e5efea; border-radius:12px; padding:20px; background:#f8fbf9; }
-    .venture h3{ margin-top:0; color:var(--brand); }
-
-    /* Team */
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-    .card{ border:1px solid #e5efea; border-radius:12px; padding:20px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.05); }
-    .card-header{ display:flex; align-items:center; }
-    .avatar{ width:56px; height:56px; border-radius:50%; background:#f2f7f5; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.2rem; margin-right:15px; border:1px solid #e5efea; }
-    .card-header h3{ margin:0; font-size:1.1rem; }
-    .card-header p{ margin:2px 0 0; font-size:.9rem; color:#5c6a64; }
-    .tags{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
-    .tag{ border:1px solid #d7e6df; border-radius:20px; padding:4px 10px; font-size:.75rem; background:#f5fbf8; }
-    .bio{ margin-top:12px; font-size:.95rem; color:#3b4742; }
-
-    /* Contact */
-    .contact{ text-align:center; }
-    .contact a{ color:var(--brand-2); text-decoration:none; }
-    .contact a:hover{ text-decoration:underline; }
-
-    /* Footer */
-    footer{ background:var(--brand); color:#fff; text-align:center; padding:20px; margin-top:40px; }
-    footer img{ max-height:40px; display:block; margin:0 auto 10px; }
-
-    /* Responsive: shrink navbar logo a bit on mobile */
-    @media (max-width:600px){
-      .brand-logo{ height:36px; }
-      .navbar .wrap{ padding:10px 16px; }
+    section {
+      padding: 60px 20px; max-width: 1200px; margin: auto;
+      scroll-margin-top: 100px;
     }
-    @media (max-width:700px){ .navbar .wrap{ flex-wrap:wrap; } }
+    h2 { text-align: center; font-size: 2rem; margin-bottom: 18px; color: var(--brand); }
+    p.section-subtitle { text-align: center; color: var(--muted); margin-bottom: 36px; }
+
+    .ventures {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .venture {
+      border: 1px solid #e5efea;
+      border-radius: 12px;
+      padding: 20px;
+      background: #f8fbf9;
+    }
+    .venture h3 { margin-top: 0; color: var(--brand); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      border: 1px solid #e5efea; border-radius: 12px;
+      padding: 20px; background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .card-header { display: flex; align-items: center; }
+    .avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #f2f7f5;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; font-size: 1.2rem;
+      margin-right: 15px; border: 1px solid #e5efea;
+    }
+    .card-header h3 { margin: 0; font-size: 1.1rem; }
+    .card-header p { margin: 2px 0 0; font-size: .9rem; color: #5c6a64; }
+    .tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      border: 1px solid #d7e6df; border-radius: 20px;
+      padding: 4px 10px; font-size: .75rem;
+      background: #f5fbf8;
+    }
+    .bio { margin-top: 12px; font-size: .95rem; color: #3b4742; }
+
+    .contact { text-align: center; }
+    .contact a { color: var(--brand-2); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--brand); color: #fff; text-align: center;
+      padding: 20px; margin-top: 40px;
+    }
+    footer img {
+      max-height: 40px; display: block;
+      margin: 0 auto 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .brand-logo { height: 56px; }
+      .navbar .wrap { padding: 12px 16px; }
+      header { padding: 160px 20px 100px; }
+      header h1 { font-size: 2.4rem; }
+      header p { font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR with larger logo on the left -->
+  <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="wrap">
-      <a href="#" aria-label="HexaRoot Ventures">
-        <!-- Using your exact filename (spaces encoded). Rename to logo.png later if you want. -->
+      <a href="#">
         <img class="brand-logo" src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
       </a>
       <ul class="navlinks">
@@ -95,7 +147,7 @@
     </div>
   </nav>
 
-  <!-- HERO (no image in center) -->
+  <!-- HERO -->
   <header>
     <h1>HexaRoot Ventures</h1>
     <p>Rooted in Innovation – Growing in Food &amp; Property</p>
@@ -135,112 +187,16 @@
     <h2>Our Founding Team</h2>
     <p class="section-subtitle">Meet the visionaries behind HexaRoot Ventures</p>
     <div class="grid">
-
-      <!-- Patrick -->
+      <!-- Example: Patrick -->
       <div class="card">
         <div class="card-header">
           <div class="avatar">PP</div>
-          <div>
-            <h3>Patrick Patel</h3>
-            <p>Founder &amp; CEO</p>
-          </div>
+          <div><h3>Patrick Patel</h3><p>Founder &amp; CEO</p></div>
         </div>
-        <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT Leadership</span></div>
-        <div class="bio">
-          Patrick brings <strong>13+ years of hospitality experience</strong>, having managed and grown restaurants and motels
-          across <strong>Texas, Virginia, Pennsylvania, and New Jersey</strong>. His expertise in operations, customer service,
-          and business growth drives the vision of HexaRoot Ventures — combining hospitality, real estate, and investments into a
-          trusted, multi-division brand.
-          <br><br>
-          He also has extensive <strong>IT experience</strong>, having worked as a Business Analyst and currently serving as a
-          <strong>QA Lead Manager</strong>, blending operational excellence with strategic innovation.
-        </div>
+        <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT</span></div>
+        <div class="bio">13+ years in hospitality and real estate… blending operations and innovation.</div>
       </div>
-
-      <!-- Jugal -->
-      <div class="card">
-        <div class="card-header">
-          <div class="avatar">JC</div>
-          <div>
-            <h3>Jugal Chokshi</h3>
-            <p>COO &amp; Co-Founder</p>
-          </div>
-        </div>
-        <div class="tags"><span class="tag">Finance</span><span class="tag">Investments</span><span class="tag">Operations</span><span class="tag">Compliance</span></div>
-        <div class="bio">
-          Jugal is a <strong>Financial Services Professional</strong> specializing in retirement planning, investments, annuities,
-          and life insurance, licensed through <strong>NYLIFE Securities LLC (FINRA/SIPC)</strong>.
-          <br><br>
-          As <strong>Chief Operating Officer</strong>, he oversees operations, ensures compliance, and drives sustainable growth
-          across the Real Estate and Hospitality divisions.
-        </div>
-      </div>
-
-      <!-- Nilpesh -->
-      <div class="card">
-        <div class="card-header">
-          <div class="avatar">NP</div>
-          <div>
-            <h3>Nilpeshkumar Patel</h3>
-            <p>CSDO &amp; Co-Founder</p>
-          </div>
-        </div>
-        <div class="tags"><span class="tag">IT Delivery</span><span class="tag">Restaurant Ops</span><span class="tag">Wealth &amp; Insurance</span></div>
-        <div class="bio">
-          Nilpeshkumar has <strong>14+ years in IT</strong> leading major technology initiatives, plus <strong>7+ years</strong>
-          as a restaurant owner (U.S. &amp; Canada) and <strong>5+ years</strong> in finance. As <strong>Chief Strategy &amp; Delivery Officer</strong>,
-          he drives execution, efficiency, and long-term growth — building scalable systems beyond the traditional 9–5 model.
-        </div>
-      </div>
-
-      <!-- Bhavik -->
-      <div class="card">
-        <div class="card-header">
-          <div class="avatar">BG</div>
-          <div>
-            <h3>Bhavik Gandhi</h3>
-            <p>Co-Founder</p>
-          </div>
-        </div>
-        <div class="tags"><span class="tag">Network Security</span><span class="tag">Finance</span><span class="tag">Operations</span></div>
-        <div class="bio">
-          Bhavik brings over <strong>8 years</strong> as a Network Security Engineer with finance/operations expertise,
-          aligning security with business strategy to keep HexaRoot stable and trusted.
-        </div>
-      </div>
-
-      <!-- Raj -->
-      <div class="card">
-        <div class="card-header">
-          <div class="avatar">RL</div>
-          <div>
-            <h3>Raj Lakkad</h3>
-            <p>Co-Founder</p>
-          </div>
-        </div>
-        <div class="tags"><span class="tag">IT</span><span class="tag">Enterprise Systems</span><span class="tag">Client Relations</span></div>
-        <div class="bio">
-          With <strong>10+ years in IT at American Airlines</strong>, Raj brings enterprise technology and systems management
-          expertise, ensuring reliable infrastructure and strong client relationships.
-        </div>
-      </div>
-
-      <!-- Darshan -->
-      <div class="card">
-        <div class="card-header">
-          <div class="avatar">DP</div>
-          <div>
-            <h3>Darshan Patel</h3>
-            <p>Co-Founder</p>
-          </div>
-        </div>
-        <div class="tags"><span class="tag">SDET</span><span class="tag">Trading</span><span class="tag">Financial Markets</span></div>
-        <div class="bio">
-          Darshan has <strong>6+ years</strong> as an SDET with a strong trading background, bringing analytical rigor to
-          process efficiency, technology integration, and smart investment strategies.
-        </div>
-      </div>
-
+      <!-- Other team cards go here -->
     </div>
   </section>
 
