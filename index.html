@@ -21,10 +21,10 @@
       background:var(--brand); border-bottom:1px solid rgba(255,255,255,.12);
     }
     .navbar .wrap{
-      max-width:1200px; margin:0 auto; padding:10px 20px;
+      max-width:1200px; margin:0 auto; padding:14px 20px; /* more padding for bigger logo */
       display:flex; align-items:center; gap:18px;
     }
-    .brand-logo{ height:32px; display:block; }
+    .brand-logo{ height:48px; display:block; }            /* bigger on desktop */
     .navlinks{ list-style:none; margin:0; padding:0; display:flex; gap:22px; }
     .navlinks a{
       color:#fff; text-decoration:none; font-weight:700;
@@ -69,12 +69,17 @@
     footer{ background:var(--brand); color:#fff; text-align:center; padding:20px; margin-top:40px; }
     footer img{ max-height:40px; display:block; margin:0 auto 10px; }
 
+    /* Responsive: shrink navbar logo a bit on mobile */
+    @media (max-width:600px){
+      .brand-logo{ height:36px; }
+      .navbar .wrap{ padding:10px 16px; }
+    }
     @media (max-width:700px){ .navbar .wrap{ flex-wrap:wrap; } }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR with logo on the left -->
+  <!-- NAVBAR with larger logo on the left -->
   <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="wrap">
       <a href="#" aria-label="HexaRoot Ventures">
