@@ -46,11 +46,12 @@
     }
     @media (max-width:480px){.brand-logo{height:40px}}
 
-    /* HERO */
+    /* HERO (local + fallback) */
     header{
       position:relative;
-      background-image:url("hero-bg.jpg"),url("https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1920&auto=format&fit=crop");
-      background-position:center,center;background-size:cover,cover;background-repeat:no-repeat,no-repeat;
+      background-image:url("hero-bg.jpg"),
+        url("https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1920&auto=format&fit=crop");
+      background-position:center,center; background-size:cover,cover; background-repeat:no-repeat,no-repeat;
       text-align:center;color:#fff;padding:200px 20px 140px;margin-top:96px;
     }
     header::before{content:"";position:absolute;inset:0;background:rgba(15,59,46,.65)}
@@ -86,11 +87,13 @@
     .contact a{color:var(--brand-2);text-decoration:none}
     .contact a:hover{text-decoration:underline}
 
-    /* Footer */
-    footer{background:var(--brand);color:#fff;text-align:center;padding:20px;margin-top:40px}
-    footer a.credit{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;text-decoration:none;color:#fff;font-size:.9rem}
-    footer a.credit img{height:18px;width:auto}
-    footer a.credit:hover{color:#cce7dd}
+    /* FOOTER (compact & professional) */
+    footer{background:var(--brand);color:#fff;text-align:center;padding:25px 20px;margin-top:40px}
+    .footer-content{max-width:1200px;margin:0 auto}
+    .footer-logo{max-height:60px;width:auto;display:block;margin:0 auto 12px}
+    .credit{font-size:.85rem;color:#cce7dd;margin-top:6px}
+    .credit a{color:#fff;text-decoration:none}
+    .credit a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -137,13 +140,11 @@
     <div class="ventures">
       <div class="venture">
         <h3>Food Business 🍴</h3>
-        <p>Delivering authentic taste and innovative food concepts. From hospitality to packaged products,
-           we aim to create memorable dining experiences and scalable business opportunities.</p>
+        <p>Authentic dining experiences, reliable catering, and scalable concepts designed for quality and consistency.</p>
       </div>
       <div class="venture">
         <h3>Property Development 🏗️</h3>
-        <p>Building sustainable, community-driven real estate projects. Our focus spans residential and
-           commercial development that enhances both lifestyle and value.</p>
+        <p>Sustainable, community-focused projects across residential and commercial assets with long-term value.</p>
       </div>
     </div>
   </section>
@@ -151,15 +152,98 @@
   <!-- TEAM -->
   <section id="team">
     <h2>Our Founding Team</h2>
-    <p class="section-subtitle">Meet the visionaries behind HexaRoot Ventures</p>
+    <p class="section-subtitle">Meet the leaders guiding HexaRoot Ventures.</p>
+
     <div class="grid">
-      <!-- Example card -->
+      <!-- Patrick -->
       <div class="card">
-        <div class="card-header"><div class="avatar">PP</div><div><h3>Patrick Patel</h3><p>Founder &amp; CEO</p></div></div>
+        <div class="card-header">
+          <div class="avatar">PP</div>
+          <div>
+            <h3>Patrick Patel</h3>
+            <p>Founder &amp; CEO</p>
+          </div>
+        </div>
         <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT Leadership</span></div>
-        <div class="bio">13+ years in Hospitality across TX/VA/PA/NJ; blends operations and IT leadership to drive a trusted, multi-division brand.</div>
+        <div class="bio">
+          13+ years in hospitality managing restaurants and motels across TX, VA, PA, and NJ. With experience as a Business Analyst and current QA Lead Manager in IT, Patrick blends operations and technology to drive a trusted, multi-division brand.
+        </div>
       </div>
-      <!-- Repeat other team cards... -->
+
+      <!-- Jugal -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">JC</div>
+          <div>
+            <h3>Jugal Chokshi</h3>
+            <p>COO &amp; Co-Founder</p>
+          </div>
+        </div>
+        <div class="tags"><span class="tag">Finance</span><span class="tag">Investments</span><span class="tag">Operations</span></div>
+        <div class="bio">
+          Financial Services Professional focused on retirement planning, investments, annuities, and life insurance (licensed through NYLIFE Securities LLC, FINRA/SIPC). As COO, Jugal steers operations, compliance, and sustainable growth across divisions.
+        </div>
+      </div>
+
+      <!-- Nilpesh -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">NP</div>
+          <div>
+            <h3>Nilpeshkumar Patel</h3>
+            <p>CSDO &amp; Co-Founder</p>
+          </div>
+        </div>
+        <div class="tags"><span class="tag">IT Delivery</span><span class="tag">Restaurant Ops</span><span class="tag">Finance</span></div>
+        <div class="bio">
+          14+ years in IT as Advisor/Delivery Manager, 7+ years as a restaurant owner in the U.S. &amp; Canada, and 5+ years in wealth &amp; insurance. As Chief Strategy &amp; Delivery Officer, he builds scalable systems and executes the growth roadmap.
+        </div>
+      </div>
+
+      <!-- Bhavik -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">BG</div>
+          <div>
+            <h3>Bhavik Gandhi</h3>
+            <p>Co-Founder</p>
+          </div>
+        </div>
+        <div class="tags"><span class="tag">Network Security</span><span class="tag">Operations</span></div>
+        <div class="bio">
+          8+ years as a Network Security Engineer with additional experience in finance and operations. Bhavik strengthens our technology posture and ensures secure, reliable day-to-day execution.
+        </div>
+      </div>
+
+      <!-- Raj -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">RL</div>
+          <div>
+            <h3>Raj Lakkad</h3>
+            <p>Co-Founder</p>
+          </div>
+        </div>
+        <div class="tags"><span class="tag">Enterprise IT</span><span class="tag">Client Relations</span></div>
+        <div class="bio">
+          10+ years in IT at American Airlines working on enterprise systems and large-scale operations. Raj ensures reliable technology solutions and leads key client and partner relationships.
+        </div>
+      </div>
+
+      <!-- Darshan -->
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar">DP</div>
+          <div>
+            <h3>Darshan Patel</h3>
+            <p>Co-Founder</p>
+          </div>
+        </div>
+        <div class="tags"><span class="tag">SDET</span><span class="tag">Trading</span></div>
+        <div class="bio">
+          6+ years as an SDET with a strong background in trading and financial markets. Darshan brings analytical rigor to process efficiency, tech integration, and investment decisions.
+        </div>
+      </div>
     </div>
   </section>
 
@@ -172,15 +256,18 @@
 
   <!-- FOOTER -->
   <footer>
-    <img src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
-    <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
-    <a href="https://aksharnixglobal.com" target="_blank" class="credit">
-      <img src="AksharNix-logo.png" alt="AksharNix Global logo">
-      Site created by <strong>AksharNix Global</strong>
-    </a>
+    <div class="footer-content">
+      <img src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo" class="footer-logo">
+      <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
+      <p class="credit">
+        Site created by
+        <a href="https://aksharnixglobal.com" target="_blank" rel="noopener"><strong>AksharNix Global</strong></a>
+      </p>
+    </div>
   </footer>
 
   <script>
+    // Mobile menu toggle
     const btn=document.getElementById('menuBtn');
     const nav=document.getElementById('primaryNav');
     btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});
