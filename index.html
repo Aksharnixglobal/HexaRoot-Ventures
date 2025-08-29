@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HexaRoot Ventures</title>
   <style>
-    :root {
+    :root{
       --brand:#0f3b2e; --brand-2:#145440; --ink:#1f2a24; --muted:#6b7a74; --nav-underline:#e7f3ed;
     }
     html{scroll-behavior:smooth}
@@ -14,84 +14,109 @@
     /* NAVBAR */
     .navbar{position:fixed;inset:0 0 auto 0;z-index:1000;background:var(--brand);border-bottom:1px solid rgba(255,255,255,.12)}
     .navbar .wrap{
-      max-width:1200px;margin:0 auto;padding:22px 26px;
-      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      max-width:1200px;margin:0 auto;padding:16px 22px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
     }
-    .brand-logo{height:72px;display:block;width:auto;object-fit:contain}
-    .navlinks{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:nowrap}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700}
+    .brand-logo{height:72px;width:auto;display:block;object-fit:contain}
+
+    /* Hamburger button (hidden on desktop) */
+    .menu-btn{
+      display:none; border:0; background:transparent; color:#fff;
+      width:40px; height:40px; border-radius:6px; cursor:pointer;
+    }
+    .menu-btn:focus-visible{outline:2px dashed #e7f3ed; outline-offset:4px}
+    .menu-icon, .menu-icon::before, .menu-icon::after{
+      display:block; width:22px; height:2px; background:#fff; position:relative; margin:0 auto; transition:.25s ease;
+    }
+    .menu-icon{top:0}
+    .menu-icon::before, .menu-icon::after{content:""; position:absolute; left:0}
+    .menu-icon::before{top:-6px}
+    .menu-icon::after{top:6px}
+    .menu-btn[aria-expanded="true"] .menu-icon{background:transparent}
+    .menu-btn[aria-expanded="true"] .menu-icon::before{top:0; transform:rotate(45deg)}
+    .menu-btn[aria-expanded="true"] .menu-icon::after{top:0; transform:rotate(-45deg)}
+
+    /* Links */
+    .navlinks{list-style:none;margin:0;padding:0;display:flex;gap:22px;align-items:center}
     .navlinks a{
-      position:relative;color:#fff;text-decoration:none;font-weight:700;padding:4px 0;transition:color .2s ease
+      position:relative;color:#fff;text-decoration:none;font-weight:700;padding:4px 0;transition:color .2s ease;
     }
     .navlinks a::after{
-      content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:var(--nav-underline);
-      transform:scaleX(0);transform-origin:left;transition:transform .25s ease
+      content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; background:var(--nav-underline);
+      transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
     }
     .navlinks a:hover{color:var(--nav-underline)}
     .navlinks a:hover::after{transform:scaleX(1)}
 
+    /* Mobile dropdown panel */
+    @media (max-width:768px){
+      .brand-logo{height:60px}
+      .menu-btn{display:inline-flex; align-items:center; justify-content:center}
+      .navlinks{
+        position:absolute; top:100%; right:0; left:0;
+        background:var(--brand); border-top:1px solid rgba(255,255,255,.12);
+        display:none; flex-direction:column; gap:14px; padding:14px 20px;
+      }
+      .navlinks.open{display:flex}
+    }
+    @media (max-width:480px){
+      .brand-logo{height:40px}
+    }
+
     /* HERO (local + fallback) */
     header{
       position:relative;
-      background-image:url("hero-bg.jpg"),url("https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1920&auto=format&fit=crop");
-      background-position:center,center;background-size:cover,cover;background-repeat:no-repeat,no-repeat;
-      text-align:center;color:#fff;padding:200px 20px 140px;margin-top:104px
+      background-image:url("hero-bg.jpg"),
+        url("https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1920&auto=format&fit=crop");
+      background-position:center,center; background-size:cover,cover; background-repeat:no-repeat,no-repeat;
+      text-align:center; color:#fff; padding:200px 20px 140px; margin-top:96px;
     }
-    header::before{content:"";position:absolute;inset:0;background:rgba(15,59,46,.65)}
-    header h1,header p{position:relative;z-index:1}
-    header h1{font-size:3rem;margin:0 0 12px}
-    header p{font-size:1.25rem;margin:0}
-
-    /* Sections */
-    section{padding:60px 20px;max-width:1200px;margin:auto;scroll-margin-top:100px}
-    h2{text-align:center;font-size:2rem;margin-bottom:18px;color:var(--brand)}
-    .section-subtitle{text-align:center;color:var(--muted);margin-bottom:36px}
-
-    /* Ventures */
-    .ventures{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .venture{border:1px solid #e5efea;border-radius:12px;padding:20px;background:#f8fbf9}
-    .venture h3{margin-top:0;color:var(--brand)}
-
-    /* Team */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .card{border:1px solid #e5efea;border-radius:12px;padding:20px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-    .card-header{display:flex;align-items:center}
-    .avatar{width:56px;height:56px;border-radius:50%;background:#f2f7f5;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;margin-right:15px;border:1px solid #e5efea}
-    .card-header h3{margin:0;font-size:1.1rem}
-    .card-header p{margin:2px 0 0;font-size:.9rem;color:#5c6a64}
-    .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
-    .tag{border:1px solid #d7e6df;border-radius:20px;padding:4px 10px;font-size:.75rem;background:#f5fbf8}
-    .bio{margin-top:12px;font-size:.95rem;color:#3b4742}
-
-    /* Contact */
-    .contact{text-align:center}
-    .contact a{color:var(--brand-2);text-decoration:none}
-    .contact a:hover{text-decoration:underline}
-
-    /* Footer */
-    footer{background:var(--brand);color:#fff;text-align:center;padding:20px;margin-top:40px}
-    footer img{max-height:40px;width:auto;display:block;margin:0 auto 10px}
-
-    /* ---- Responsive tweaks ---- */
-    /* Tablet */
+    header::before{content:""; position:absolute; inset:0; background:rgba(15,59,46,.65)}
+    header h1, header p{position:relative; z-index:1}
+    header h1{font-size:3rem; margin:0 0 12px}
+    header p{font-size:1.25rem; margin:0}
     @media (max-width:768px){
-      .brand-logo{height:60px}
-      .navbar .wrap{padding:14px 16px}
-      .navlinks{gap:16px}
-      .navlinks a{font-size:.95rem}
-      header{padding:170px 20px 110px;margin-top:90px}
+      header{padding:170px 20px 120px}
       header h1{font-size:2.6rem}
       header p{font-size:1.1rem}
     }
-    /* Phone */
     @media (max-width:480px){
-      .brand-logo{height:40px}             /* << smaller logo on phones */
-      .navlinks{gap:12px;flex-wrap:wrap;justify-content:flex-end}
-      .navlinks a{font-size:.9rem;padding:2px 0}
-      .navbar .wrap{padding:10px 14px}
-      header{padding:150px 16px 90px;margin-top:80px}
+      header{padding:150px 16px 100px}
       header h1{font-size:2.2rem}
       header p{font-size:1rem}
     }
+
+    /* Sections */
+    section{padding:60px 20px; max-width:1200px; margin:auto; scroll-margin-top:100px}
+    h2{text-align:center; font-size:2rem; margin-bottom:18px; color:var(--brand)}
+    .section-subtitle{text-align:center; color:var(--muted); margin-bottom:36px}
+
+    /* Ventures */
+    .ventures{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px}
+    .venture{border:1px solid #e5efea; border-radius:12px; padding:20px; background:#f8fbf9}
+    .venture h3{margin-top:0; color:var(--brand)}
+
+    /* Team */
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px}
+    .card{border:1px solid #e5efea; border-radius:12px; padding:20px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .card-header{display:flex; align-items:center}
+    .avatar{width:56px; height:56px; border-radius:50%; background:#f2f7f5; display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:1.1rem; margin-right:15px; border:1px solid #e5efea}
+    .card-header h3{margin:0; font-size:1.1rem}
+    .card-header p{margin:2px 0 0; font-size:.9rem; color:#5c6a64}
+    .tags{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px}
+    .tag{border:1px solid #d7e6df; border-radius:20px; padding:4px 10px; font-size:.75rem; background:#f5fbf8}
+    .bio{margin-top:12px; font-size:.95rem; color:#3b4742}
+
+    /* Contact */
+    .contact{text-align:center}
+    .contact a{color:var(--brand-2); text-decoration:none}
+    .contact a:hover{text-decoration:underline}
+
+    /* Footer */
+    footer{background:var(--brand); color:#fff; text-align:center; padding:20px; margin-top:40px}
+    footer img{max-height:40px; width:auto; display:block; margin:0 auto 10px}
   </style>
 </head>
 <body>
@@ -99,10 +124,17 @@
   <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="wrap">
-      <a href="#">
+      <a class="brand" href="#">
         <img class="brand-logo" src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
       </a>
-      <ul class="navlinks">
+
+      <!-- Hamburger -->
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-controls="primaryNav" aria-expanded="false">
+        <span class="menu-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <ul class="navlinks" id="primaryNav">
         <li><a href="#about">About Us</a></li>
         <li><a href="#ventures">Our Ventures</a></li>
         <li><a href="#team">Our Founding Team</a></li>
@@ -215,5 +247,24 @@
     <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('primaryNav');
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('open', !open);
+    });
+
+    // Close menu after clicking a link (nice on mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        btn.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
