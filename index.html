@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HexaRoot Ventures</title>
   <style>
-    /* Brand palette (tuned to your logo) */
+    /* Brand palette */
     :root{
-      --brand:#0f3b2e;      /* deep green */
-      --brand-2:#145440;    /* lighter green for hovers/accents */
+      --brand:#0f3b2e;      /* deep green from logo */
+      --brand-2:#145440;    /* lighter green accent */
       --ink:#1f2a24;        /* dark text */
       --muted:#6b7a74;      /* muted text */
     }
@@ -24,22 +24,20 @@
       max-width:1200px; margin:0 auto; padding:10px 20px;
       display:flex; align-items:center; gap:18px;
     }
-    .brand-logo{ height:28px; display:block; }
+    .brand-logo{ height:32px; display:block; }
     .navlinks{ list-style:none; margin:0; padding:0; display:flex; gap:22px; }
     .navlinks a{
       color:#fff; text-decoration:none; font-weight:700;
     }
     .navlinks a:hover{ color:#e7f3ed; text-decoration:underline; }
 
-    /* HEADER (hero) */
+    /* HEADER (no center logo) */
     header{
       background:var(--brand); color:#fff; text-align:center;
-      padding:120px 20px 70px;   /* extra top padding to clear fixed nav */
-      margin-top:48px;           /* space under fixed nav */
+      padding:120px 20px 70px;   /* top padding to clear fixed nav */
     }
-    header img.hero-logo{ max-height:84px; margin-bottom:16px; }
-    header h1{ font-size:2.8rem; margin:6px 0 8px; }
-    header p{ font-size:1.2rem; margin:0; color:#d9ece5; }
+    header h1{ font-size:2.6rem; margin:6px 0 8px; }
+    header p{ font-size:1.15rem; margin:0; color:#d9ece5; }
 
     /* Sections */
     section{ padding:60px 20px; max-width:1200px; margin:auto; scroll-margin-top:80px; }
@@ -77,11 +75,11 @@
 <body>
 
   <!-- NAVBAR with logo on the left -->
- <img class="brand-logo" src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
+  <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="wrap">
-      <!-- show your logo file here -->
       <a href="#" aria-label="HexaRoot Ventures">
-       <img class="hero-logo" src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures">
+        <!-- Use your existing filename with spaces encoded OR rename to logo.png and change src -->
+        <img class="brand-logo" src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
       </a>
       <ul class="navlinks">
         <li><a href="#about">About Us</a></li>
@@ -92,9 +90,8 @@
     </div>
   </nav>
 
-  <!-- HERO (single title only; removed duplicate & onerror text) -->
+  <!-- HERO (no center logo) -->
   <header>
-    <img class="hero-logo" src="logo.png" alt="HexaRoot Ventures">
     <h1>HexaRoot Ventures</h1>
     <p>Rooted in Innovation – Growing in Food &amp; Property</p>
   </header>
@@ -251,7 +248,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <img src="logo.png" alt="HexaRoot Ventures logo">
+    <img src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
     <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
   </footer>
 
