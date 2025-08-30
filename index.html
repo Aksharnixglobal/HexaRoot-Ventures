@@ -2,107 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HexaRoot Ventures</title>
-
-  <!-- SEO & Social -->
-  <meta name="description" content="HexaRoot Ventures — DFW-based holding company across Real Estate and Food & Hospitality. Building foundations, inspiring growth." />
-  <meta property="og:title" content="HexaRoot Ventures" />
-  <meta property="og:description" content="Real Estate • Hospitality • Commercial Investments in DFW" />
-  <meta property="og:image" content="HexaRoot_logo_footer.png" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0f3b2e" />
-  <link rel="icon" href="favicon.png" />
-
   <style>
-    :root{
-      --brand:#0f3b2e;
-      --brand-2:#145440;
-      --ink:#1f2a24;
-      --muted:#6b7a74;
-      --nav-underline:#e7f3ed;
-      --card-border:#e5efea;
+    :root {
+      --brand:#0f3b2e; --brand-2:#145440; --ink:#1f2a24; --muted:#6b7a74; --nav-underline:#e7f3ed;
     }
     html{scroll-behavior:smooth}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:var(--ink);background:#fff}
 
     /* NAVBAR */
-    .navbar{
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      background:var(--brand);
-      border-bottom:1px solid rgba(255,255,255,.12);
-    }
+    .navbar{position:fixed;inset:0 0 auto 0;z-index:1000;background:var(--brand);border-bottom:1px solid rgba(255,255,255,.12)}
     .navbar .wrap{
-      max-width:1200px;margin:0 auto;padding:16px 22px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      max-width:1200px;margin:0 auto;padding:22px 26px;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
     }
-    .brand{display:flex;align-items:center;text-decoration:none;color:#fff}
-    .brand-logo{height:50px;width:auto;display:block;object-fit:contain}
-
-    .menu-btn{display:none;border:0;background:transparent;color:#fff;width:40px;height:40px;border-radius:6px;cursor:pointer}
-    .menu-icon,.menu-icon::before,.menu-icon::after{display:block;width:22px;height:2px;background:#fff;position:relative;margin:0 auto;transition:.25s ease}
-    .menu-icon::before,.menu-icon::after{content:"";position:absolute;left:0}
-    .menu-icon::before{top:-6px}
-    .menu-icon::after{top:6px}
-    .menu-btn[aria-expanded="true"] .menu-icon{background:transparent}
-    .menu-btn[aria-expanded="true"] .menu-icon::before{top:0;transform:rotate(45deg)}
-    .menu-btn[aria-expanded="true"] .menu-icon::after{top:0;transform:rotate(-45deg)}
-
-    .navlinks{list-style:none;margin:0;padding:0;display:flex;gap:26px;align-items:center}
-    .navlinks a{position:relative;color:#fff;text-decoration:none;font-weight:700;padding:4px 0;transition:color .2s ease}
-    .navlinks a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:var(--nav-underline);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+    .brand-logo{height:72px;display:block;width:auto;object-fit:contain}
+    .navlinks{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:nowrap}
+    .navlinks a{
+      position:relative;color:#fff;text-decoration:none;font-weight:700;padding:4px 0;transition:color .2s ease
+    }
+    .navlinks a::after{
+      content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:var(--nav-underline);
+      transform:scaleX(0);transform-origin:left;transition:transform .25s ease
+    }
     .navlinks a:hover{color:var(--nav-underline)}
     .navlinks a:hover::after{transform:scaleX(1)}
 
-    /* MOBILE */
-    @media (max-width:768px){
-      .brand-logo{height:40px}
-      .menu-btn{display:inline-flex;align-items:center;justify-content:center}
-      .navlinks{
-        position:absolute;top:100%;right:0;left:0;background:var(--brand);
-        border-top:1px solid rgba(255,255,255,.12);
-        display:none;flex-direction:column;gap:14px;padding:14px 20px
-      }
-      .navlinks.open{display:flex}
-    }
-
-    /* HERO */
+    /* HERO (local + fallback) */
     header{
-      position:relative;margin-top:96px;text-align:center;color:#fff;
-      padding:200px 20px 140px;
-      background-image:url("hero-bg.jpg"),
-        url("https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1920&auto=format&fit=crop");
+      position:relative;
+      background-image:url("hero-bg.jpg"),url("https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1920&auto=format&fit=crop");
       background-position:center,center;background-size:cover,cover;background-repeat:no-repeat,no-repeat;
+      text-align:center;color:#fff;padding:200px 20px 140px;margin-top:104px
     }
     header::before{content:"";position:absolute;inset:0;background:rgba(15,59,46,.65)}
-    header .hero-inner{position:relative;z-index:1;max-width:1000px;margin:0 auto}
+    header h1,header p{position:relative;z-index:1}
     header h1{font-size:3rem;margin:0 0 12px}
-    header p{font-size:1.25rem;margin:0 0 24px}
-    .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .btn{
-      display:inline-block;padding:12px 18px;border-radius:10px;border:2px solid #fff;
-      color:#fff;text-decoration:none;font-weight:700
-    }
-    .btn.primary{background:#ffffff;color:var(--brand);border-color:#ffffff}
-    .btn.primary:hover{opacity:.9}
-    .btn.ghost:hover{background:rgba(255,255,255,.12)}
+    header p{font-size:1.25rem;margin:0}
 
     /* Sections */
     section{padding:60px 20px;max-width:1200px;margin:auto;scroll-margin-top:100px}
     h2{text-align:center;font-size:2rem;margin-bottom:18px;color:var(--brand)}
-    .section-subtitle{text-align:center;color:var(--muted);margin:0 auto 36px;max-width:900px}
+    .section-subtitle{text-align:center;color:var(--muted);margin-bottom:36px}
 
     /* Ventures */
     .ventures{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .venture{border:1px solid var(--card-border);border-radius:12px;padding:20px;background:#f8fbf9}
+    .venture{border:1px solid #e5efea;border-radius:12px;padding:20px;background:#f8fbf9}
     .venture h3{margin-top:0;color:var(--brand)}
 
     /* Team */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .card{border:1px solid var(--card-border);border-radius:12px;padding:20px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-    .card-header{display:flex;align-items:center;gap:12px}
-    .avatar{width:56px;height:56px;border-radius:50%;background:#f2f7f5;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;border:1px solid var(--card-border)}
-    .avatar-img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid var(--card-border)}
+    .card{border:1px solid #e5efea;border-radius:12px;padding:20px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .card-header{display:flex;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:50%;background:#f2f7f5;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;margin-right:15px;border:1px solid #e5efea}
     .card-header h3{margin:0;font-size:1.1rem}
     .card-header p{margin:2px 0 0;font-size:.9rem;color:#5c6a64}
     .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
@@ -111,21 +64,34 @@
 
     /* Contact */
     .contact{text-align:center}
-    .contact form{max-width:560px;margin:14px auto 0;text-align:left}
-    .contact input,.contact textarea{
-      width:100%;padding:10px;margin:6px 0 12px;border:1px solid var(--card-border);border-radius:8px
-    }
-    .contact button{
-      background:var(--brand);color:#fff;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer
-    }
+    .contact a{color:var(--brand-2);text-decoration:none}
+    .contact a:hover{text-decoration:underline}
 
-    /* FOOTER */
-    footer{background:var(--brand);color:#fff;text-align:center;padding:30px 20px;margin-top:40px}
-    .footer-content{max-width:1200px;margin:0 auto}
-    .footer-logo{max-height:120px;width:auto;display:block;margin:0 auto 12px}
-    .credit{font-size:.9rem;color:#cce7dd;margin-top:6px}
-    .credit a{color:#fff;text-decoration:none}
-    .credit a:hover{text-decoration:underline}
+    /* Footer */
+    footer{background:var(--brand);color:#fff;text-align:center;padding:20px;margin-top:40px}
+    footer img{max-height:40px;width:auto;display:block;margin:0 auto 10px}
+
+    /* ---- Responsive tweaks ---- */
+    /* Tablet */
+    @media (max-width:768px){
+      .brand-logo{height:60px}
+      .navbar .wrap{padding:14px 16px}
+      .navlinks{gap:16px}
+      .navlinks a{font-size:.95rem}
+      header{padding:170px 20px 110px;margin-top:90px}
+      header h1{font-size:2.6rem}
+      header p{font-size:1.1rem}
+    }
+    /* Phone */
+    @media (max-width:480px){
+      .brand-logo{height:40px}             /* << smaller logo on phones */
+      .navlinks{gap:12px;flex-wrap:wrap;justify-content:flex-end}
+      .navlinks a{font-size:.9rem;padding:2px 0}
+      .navbar .wrap{padding:10px 14px}
+      header{padding:150px 16px 90px;margin-top:80px}
+      header h1{font-size:2.2rem}
+      header p{font-size:1rem}
+    }
   </style>
 </head>
 <body>
@@ -133,15 +99,10 @@
   <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="wrap">
-      <a class="brand" href="#">
-        <img class="brand-logo" src="HexaRoot_logo_navbar.png" alt="HexaRoot Ventures logo" />
+      <a href="#">
+        <img class="brand-logo" src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
       </a>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-controls="primaryNav" aria-expanded="false">
-        <span class="menu-icon"></span>
-      </button>
-
-      <ul class="navlinks" id="primaryNav">
+      <ul class="navlinks">
         <li><a href="#about">About Us</a></li>
         <li><a href="#ventures">Our Ventures</a></li>
         <li><a href="#team">Our Founding Team</a></li>
@@ -152,14 +113,8 @@
 
   <!-- HERO -->
   <header>
-    <div class="hero-inner">
-      <h1>HexaRoot Ventures</h1>
-      <p>Rooted in Innovation – Growing in Food &amp; Property</p>
-      <div class="cta-row">
-        <a href="#contact" class="btn primary">Talk to Us</a>
-        <a href="#ventures" class="btn ghost">Explore Divisions</a>
-      </div>
-    </div>
+    <h1>HexaRoot Ventures</h1>
+    <p>Rooted in Innovation – Growing in Food &amp; Property</p>
   </header>
 
   <!-- ABOUT -->
@@ -169,31 +124,24 @@
       Founded by <strong>Patrick Patel</strong> and five fellow cricketer friends —
       <strong>Jugal Chokshi</strong>, <strong>Nilpeshkumar Patel</strong>, <strong>Raj Lakkad</strong>,
       <strong>Darshan Patel</strong>, and <strong>Bhavik Gandhi</strong> — HexaRoot Ventures brings teamwork,
-      dedication, and vision from the cricket field into the business world. We operate in Real Estate and
-      Food &amp; Hospitality with a roadmap into commercial investments and lodging assets across the Dallas–Fort Worth area.
+      dedication, and vision from the cricket field into the business world. We are focused on shaping the future
+      of food and property development with passion and integrity.
     </p>
   </section>
 
   <!-- VENTURES -->
   <section id="ventures">
     <h2>Our Ventures</h2>
-    <p class="section-subtitle">Focused divisions with shared strategy, finance, and technology.</p>
     <div class="ventures">
       <div class="venture">
-        <h3>Food &amp; Hospitality 🍴</h3>
-        <p>Restaurant and café operations, corporate &amp; event catering, and guest-first standards across training, quality, and controls.</p>
+        <h3>Food Business 🍴</h3>
+        <p>Delivering authentic taste and innovative food concepts. From hospitality to packaged products,
+           we aim to create memorable dining experiences and scalable business opportunities.</p>
       </div>
       <div class="venture">
-        <h3>Real Estate 🏗️</h3>
-        <p>Brokerage, leasing, and property management for residential &amp; commercial assets; investor advisory and hold/sell analysis.</p>
-      </div>
-      <div class="venture">
-        <h3>Commercial Investment Properties 🧩</h3>
-        <p>Acquisition and rental management for stable cash flow and long-term appreciation across retail, office, and mixed-use.</p>
-      </div>
-      <div class="venture">
-        <h3>Motel/Hotel (Roadmap) 🛎️</h3>
-        <p>Targeting limited-service assets aligned with DFW business and event demand, with a focus on efficient ops and guest experience.</p>
+        <h3>Property Development 🏗️</h3>
+        <p>Building sustainable, community-driven real estate projects. Our focus spans residential and
+           commercial development that enhances both lifestyle and value.</p>
       </div>
     </div>
   </section>
@@ -201,131 +149,55 @@
   <!-- TEAM -->
   <section id="team">
     <h2>Our Founding Team</h2>
-    <p class="section-subtitle">Meet the leaders guiding HexaRoot Ventures.</p>
-
+    <p class="section-subtitle">Meet the visionaries behind HexaRoot Ventures</p>
     <div class="grid">
-      <!-- Patrick -->
       <div class="card">
         <div class="card-header">
-          "avatar-img" src="Patrick%20Img.jpg"
-               alt="Patrick Patel"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar" style="display:none;">PP</div>
-          <div>
-            <h3>Patrick Patel</h3>
-            <p>Founder &amp; CEO</p>
-          </div>
+          <div class="avatar">PP</div>
+          <div><h3>Patrick Patel</h3><p>Founder &amp; CEO</p></div>
         </div>
-        <div class="tags">
-          <span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT Leadership</span>
-        </div>
-        <div class="bio">
-          Patrick brings 13+ years of hospitality experience, managing and expanding restaurants and motels across TX, VA, PA, and NJ.
-          With experience as a Business Analyst and current QA Lead Manager in IT, he blends operational and technical expertise to
-          drive a trusted, multi-division brand in food, real estate, and investments.
-        </div>
+        <div class="tags"><span class="tag">Hospitality</span><span class="tag">Real Estate</span><span class="tag">IT Leadership</span></div>
+        <div class="bio">13+ years in Hospitality across TX/VA/PA/NJ; blends operations and IT leadership to drive a trusted, multi-division brand.</div>
       </div>
-
-      <!-- Jugal -->
       <div class="card">
         <div class="card-header">
-          <img class="avatar-img" src="jugal.jpg"
-               alt="Jugal Chokshi"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar" style="display:none;">JC</div>
-          <div>
-            <h3>Jugal Chokshi</h3>
-            <p>COO &amp; Co-Founder</p>
-          </div>
+          <div class="avatar">JC</div>
+          <div><h3>Jugal Chokshi</h3><p>COO &amp; Co-Founder</p></div>
         </div>
-        <div class="tags">
-          <span class="tag">Finance</span><span class="tag">Investments</span><span class="tag">Operations</span><span class="tag">Compliance</span>
-        </div>
-        <div class="bio">
-          Financial Services Professional with expertise in retirement planning, investments, annuities, and insurance (licensed through NYLIFE Securities LLC, FINRA/SIPC).
-          As COO, Jugal steers operations, compliance, and sustainable growth across our divisions.
-        </div>
+        <div class="tags"><span class="tag">Finance</span><span class="tag">Investments</span><span class="tag">Operations</span></div>
+        <div class="bio">Financial services pro (retirement, investments, annuities, insurance). As COO, leads ops, compliance, and sustainable growth.</div>
       </div>
-
-      <!-- Nilpesh -->
       <div class="card">
         <div class="card-header">
-          <img class="avatar-img" src="nilpesh.jpg"
-               alt="Nilpeshkumar Patel"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar" style="display:none;">NP</div>
-          <div>
-            <h3>Nilpeshkumar Patel</h3>
-            <p>CSDO &amp; Co-Founder</p>
-          </div>
+          <div class="avatar">NP</div>
+          <div><h3>Nilpeshkumar Patel</h3><p>CSDO &amp; Co-Founder</p></div>
         </div>
-        <div class="tags">
-          <span class="tag">IT Delivery</span><span class="tag">Restaurant Ops</span><span class="tag">Finance</span>
-        </div>
-        <div class="bio">
-          14+ years in IT as Advisor/Delivery Manager, 7+ years as a restaurant owner in the U.S. &amp; Canada, and 5+ years in wealth &amp; insurance.
-          As Chief Strategy &amp; Delivery Officer, Nilpesh builds scalable systems and executes the growth roadmap.
-        </div>
+        <div class="tags"><span class="tag">IT Delivery</span><span class="tag">Restaurant Ops</span><span class="tag">Finance</span></div>
+        <div class="bio">14+ yrs IT delivery, 7+ yrs restaurant owner (US/CA), 5+ yrs finance. Drives strategy, execution, and scalable systems.</div>
       </div>
-
-      <!-- Bhavik -->
       <div class="card">
         <div class="card-header">
-          <img class="avatar-img" src="bhavik.jpg"
-               alt="Bhavik Gandhi"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar" style="display:none;">BG</div>
-          <div>
-            <h3>Bhavik Gandhi</h3>
-            <p>Co-Founder</p>
-          </div>
+          <div class="avatar">BG</div>
+          <div><h3>Bhavik Gandhi</h3><p>Co-Founder</p></div>
         </div>
-        <div class="tags">
-          <span class="tag">Network Security</span><span class="tag">Operations</span><span class="tag">Finance</span>
-        </div>
-        <div class="bio">
-          8+ years as a Network Security Engineer with added experience in finance and operations. Bhavik strengthens our technology posture and day-to-day reliability.
-        </div>
+        <div class="tags"><span class="tag">Network Security</span><span class="tag">Finance</span></div>
+        <div class="bio">8+ yrs network security plus finance/ops experience; aligns technology risk with business growth.</div>
       </div>
-
-      <!-- Raj -->
       <div class="card">
         <div class="card-header">
-          <img class="avatar-img" src="raj.jpg"
-               alt="Raj Lakkad"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar" style="display:none;">RL</div>
-          <div>
-            <h3>Raj Lakkad</h3>
-            <p>Co-Founder</p>
-          </div>
+          <div class="avatar">RL</div>
+          <div><h3>Raj Lakkad</h3><p>Co-Founder</p></div>
         </div>
-        <div class="tags">
-          <span class="tag">Enterprise IT</span><span class="tag">Client Relations</span><span class="tag">Systems</span>
-        </div>
-        <div class="bio">
-          10+ years in IT at American Airlines working on enterprise systems and large-scale operations. Raj ensures reliable technology and strong client relationships.
-        </div>
+        <div class="tags"><span class="tag">IT</span><span class="tag">Enterprise Systems</span></div>
+        <div class="bio">10+ yrs in IT at American Airlines; ensures robust enterprise systems and strong client relationships.</div>
       </div>
-
-      <!-- Darshan -->
       <div class="card">
         <div class="card-header">
-          <img class="avatar-img" src="darshan.jpg"
-               alt="Darshan Patel"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar" style="display:none;">DP</div>
-          <div>
-            <h3>Darshan Patel</h3>
-            <p>Co-Founder</p>
-          </div>
+          <div class="avatar">DP</div>
+          <div><h3>Darshan Patel</h3><p>Co-Founder</p></div>
         </div>
-        <div class="tags">
-          <span class="tag">SDET</span><span class="tag">Trading</span><span class="tag">Analytics</span>
-        </div>
-        <div class="bio">
-          6+ years as an SDET with a strong background in trading and financial markets. Darshan brings analytical rigor to process, tech integration, and investments.
-        </div>
+        <div class="tags"><span class="tag">SDET</span><span class="tag">Trading</span></div>
+        <div class="bio">6+ yrs SDET with trading background; brings analytical rigor to process, tech integration, and smart investment strategies.</div>
       </div>
     </div>
   </section>
@@ -334,43 +206,14 @@
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:contact@hexarootventures.com">contact@hexarootventures.com</a></p>
-    <!-- Simple form shell (wire to Formspree or your backend if you wish) -->
-    <form action="#" method="POST" onsubmit="alert('Thanks! This demo form is not wired yet.'); return false;">
-      <label>Name<br><input type="text" name="name" required></label>
-      <label>Email<br><input type="email" name="email" required></label>
-      <label>Message<br><textarea name="message" rows="5" required></textarea></label>
-      <button type="submit">Send</button>
-    </form>
+    <p>Follow us on social media (links coming soon)</p>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-content">
-      <img src="HexaRoot_logo_footer.png" alt="HexaRoot Ventures logo" class="footer-logo" />
-      <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
-      <p class="credit">
-        Site created by
-        <a href="https://aksharnixglobal.com" target="_blank" rel="noopener"><strong>AksharNix Global</strong></a>
-      </p>
-    </div>
+    <img src="HexaRoot%20Ventures_%20logo_png.png" alt="HexaRoot Ventures logo">
+    <p>© 2025 HexaRoot Ventures. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Mobile menu
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('primaryNav');
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      nav.classList.toggle('open', !open);
-    });
-    // Close on link click (mobile)
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        btn.setAttribute('aria-expanded','false');
-        nav.classList.remove('open');
-      });
-    });
-  </script>
 </body>
 </html>
